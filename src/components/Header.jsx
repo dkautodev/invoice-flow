@@ -1,6 +1,6 @@
-import { Download, Receipt } from 'lucide-react';
+import { Receipt } from 'lucide-react';
 
-const Header = ({ onDownload, invoiceNumber }) => {
+const Header = () => {
   return (
     <header className="app-header">
       <div className="logo-brand">
@@ -9,13 +9,6 @@ const Header = ({ onDownload, invoiceNumber }) => {
         </div>
         <h1>InvoiceFlow</h1>
       </div>
-      <button 
-        className="btn btn-primary"
-        onClick={() => onDownload(`Facture-${invoiceNumber || '001'}.pdf`)}
-      >
-        <Download size={20} />
-        Générer la facture
-      </button>
     </header>
   );
 };

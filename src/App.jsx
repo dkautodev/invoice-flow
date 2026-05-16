@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { calculateDueDate, calculateTotals } from './utils/calculations';
 import { generatePDF } from './utils/pdfGenerator';
+import { Download } from 'lucide-react';
 import Header from './components/Header';
 import InvoiceEditor from './components/InvoiceEditor';
 import InvoicePreview from './components/InvoicePreview';
@@ -110,23 +111,30 @@ function App() {
 
   return (
     <div className="container">
-      <Header 
-        onDownload={generatePDF} 
-        invoiceNumber={data.invoice.number} 
-      />
+      <Header />
 
       <main className="main-layout">
-        <InvoiceEditor 
-          data={data}
-          onIssuerChange={handleIssuerChange}
-          onClientChange={handleClientChange}
-          onInvoiceChange={handleInvoiceChange}
-          onBankChange={handleBankChange}
-          onAddItem={addItem}
-          onRemoveItem={removeItem}
-          onItemChange={handleItemChange}
-          isTvaZero={isTvaZero}
-        />
+        <div className="editor-side">
+          <InvoiceEditor 
+            data={data}
+            onIssuerChange={handleIssuerChange}
+            onClientChange={handleClientChange}
+            onInvoiceChange={handleInvoiceChange}
+            onBankChange={handleBankChange}
+            onAddItem={addItem}
+            onRemoveItem={removeItem}
+            onItemChange={handleItemChange}
+            isTvaZero={isTvaZero}
+          />
+          <button 
+            className="btn btn-primary full-width"
+            style={{ marginTop: '2rem', height: '60px', fontSize: '1.1rem' }}
+            onClick={() => generatePDF(`Facture-${data.invoice.number || '001'}.pdf`)}
+          >
+            <Download size={24} />
+            Générer la facture
+          </button>
+        </div>
 
         <InvoicePreview 
           data={data}
