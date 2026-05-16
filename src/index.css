@@ -91,66 +91,6 @@ h1 {
   align-items: start;
 }
 
-@media (max-width: 1200px) {
-  .main-layout {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  .preview-container {
-    position: static;
-    margin-top: 1rem;
-    overflow-x: auto;
-    padding: 1rem 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 1rem;
-  }
-  
-  .app-header {
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: flex-start;
-    margin-bottom: 2rem;
-  }
-  
-  .form-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .form-group.full-width {
-    grid-column: span 1;
-  }
-  
-  .line-item-row {
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    padding: 1rem 0;
-  }
-  
-  .line-item-row .form-group:nth-child(1) {
-    grid-column: span 2;
-  }
-  
-  .line-item-row .btn-danger-icon {
-    grid-column: span 2;
-    width: 100%;
-    margin-top: 0;
-    height: 48px;
-  }
-  
-  .card {
-    padding: 1.25rem;
-    border-radius: var(--radius-sm);
-  }
-  
-  h1 {
-    font-size: 1.5rem;
-  }
-}
 
 /* Card Styling */
 .card {
@@ -603,4 +543,69 @@ textarea {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
+}
+
+@media (max-width: 1200px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .preview-container {
+    position: static;
+    margin-top: 1rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .app-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+  
+  .form-group.full-width {
+    grid-column: span 1 !important;
+  }
+  
+  .line-item-row {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  
+  .line-item-row .form-group:nth-child(1) {
+    grid-column: span 2 !important;
+  }
+  
+  .line-item-row .btn-danger-icon {
+    grid-column: span 2 !important;
+    width: 100%;
+    margin-top: 0;
+    height: 48px;
+  }
+  
+  .card {
+    padding: 1.25rem;
+    border-radius: var(--radius-sm);
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .main-layout {
+    gap: 1rem;
+  }
 }
