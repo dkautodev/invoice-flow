@@ -20,7 +20,7 @@ const InvoicePreview = ({ data, totals, dueDate, scale }) => {
 
           <div className="invoice-meta">
             <div className="meta-box">
-              <div className="meta-label">Facture</div>
+              <div className="meta-label">{data.invoice.type === 'quote' ? 'Devis' : 'Facture'}</div>
               <div className="meta-value">{data.invoice.number || '---'}</div>
             </div>
             <div className="meta-dates">
@@ -29,7 +29,7 @@ const InvoicePreview = ({ data, totals, dueDate, scale }) => {
                 <span className="value">{new Date(data.invoice.date).toLocaleDateString('fr-FR')}</span>
               </div>
               <div className="date-row">
-                <span className="label">Échéance :</span>
+                <span className="label">{data.invoice.type === 'quote' ? 'Validité :' : 'Échéance :'}</span>
                 <span className="value">{new Date(dueDate).toLocaleDateString('fr-FR')}</span>
               </div>
             </div>
@@ -38,7 +38,7 @@ const InvoicePreview = ({ data, totals, dueDate, scale }) => {
 
         <div className="preview-body">
           <div className="billing-to">
-            <div className="meta-label">Facturé à :</div>
+            <div className="meta-label">{data.invoice.type === 'quote' ? 'Devis pour :' : 'Facturé à :'}</div>
             <div className="client-name">{data.client.name || '---'}</div>
             <div className="client-address">{data.client.address || '---'}</div>
           </div>

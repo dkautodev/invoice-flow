@@ -62,10 +62,17 @@ const InvoiceEditor = ({
           </div>
         </div>
 
-        <h3 className="section-title" style={{ marginTop: '2.5rem' }}><Hash size={20} /> Paramètres Facture</h3>
+        <h3 className="section-title" style={{ marginTop: '2.5rem' }}><Hash size={20} /> Paramètres du Document</h3>
         <div className="form-grid">
+          <div className="form-group full-width">
+            <label>Type de Document</label>
+            <select name="type" value={data.invoice.type || 'invoice'} onChange={onInvoiceChange}>
+              <option value="invoice">Facture</option>
+              <option value="quote">Devis</option>
+            </select>
+          </div>
           <div className="form-group">
-            <label>Numéro de Facture</label>
+            <label>Numéro de {data.invoice.type === 'quote' ? 'Devis' : 'Facture'}</label>
             <input name="number" value={data.invoice.number} onChange={onInvoiceChange} placeholder="FAC-2024-001" />
           </div>
           <div className="form-group">

@@ -22,6 +22,7 @@ const INITIAL_STATE = {
     address: ""
   },
   invoice: {
+    type: "invoice",
     number: "",
     date: new Date().toISOString().split("T")[0],
     dueTerm: "0",
@@ -129,10 +130,13 @@ function App() {
           <button 
             className="btn btn-primary full-width"
             style={{ marginTop: '2rem', height: '60px', fontSize: '1.1rem' }}
-            onClick={() => generatePDF(`Facture-${data.invoice.number || '001'}.pdf`)}
+            onClick={() => {
+              const prefix = data.invoice.type === 'quote' ? 'Devis' : 'Facture';
+              generatePDF(`${prefix}-${data.invoice.number || '001'}.pdf`);
+            }}
           >
             <Download size={24} />
-            Générer la facture
+            {data.invoice.type === 'quote' ? 'Générer le devis' : 'Générer la facture'}
           </button>
         </div>
 
